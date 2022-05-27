@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
+from django.views.generic import DetailView
 from .models import Celtic
 
 # Create your views here.
@@ -16,5 +17,6 @@ class CelticsList(TemplateView):
         context["celtics"] = Celtic.objects.all()
         return context
 
-class CelticsDetail(TemplateView):
+class CelticsDetail(DetailView):
+    model = Celtic
     template_name = "celtics-detail.html"

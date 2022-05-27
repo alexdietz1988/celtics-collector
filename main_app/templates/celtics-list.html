@@ -5,11 +5,10 @@ Celtics List
 {% endblock %}
 
 {% block body %}
-Celtics List
+<h1>Celtics List</h1>
 
 {% for celtic in celtics %}
-<p>{{celtic.first_name}} {{celtic.last_name}}</p>
-
+    <p><a href="{% url 'celtics_detail' celtic.pk %}">{{celtic.first_name}} {{celtic.last_name}}</a></p>
 {% endfor %}
 
 {% endblock %}
