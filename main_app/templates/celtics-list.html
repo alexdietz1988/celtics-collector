@@ -6,4 +6,10 @@ Celtics List
 
 {% block body %}
 Celtics List
+
+{% for celtic in celtics %}
+<p>{{celtic.first_name}} {{celtic.last_name}}</p>
+
+{% endfor %}
+
 {% endblock %}
