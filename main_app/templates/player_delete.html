@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete {{player.first_name}} {{player.last_name}}
+{% endblock %}
+
+{% block body %}
+
+<h1>Are you sure you want to delete {{player.first_name}} {{player.last_name}}?</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit" />
+    <a href="{% url 'player_detail' player.pk %}">Cancel</a>
+</form>
+
+{% endblock %}

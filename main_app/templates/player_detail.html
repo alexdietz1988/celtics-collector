@@ -8,6 +8,7 @@ Player Detail
 <h1>Player Detail</h1>
 
 <a href="{% url 'player_update' player.pk%}">Update Player</a>
+<a href="{% url 'player_delete' player.pk%}">Delete Player</a>
 
 <div>
     <h2>{{player.first_name}} {{player.last_name}}</h2>

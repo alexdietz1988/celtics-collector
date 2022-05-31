@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Player
 
 # Create your views here.
@@ -30,4 +30,9 @@ class PlayerUpdate(UpdateView):
     model = Player
     fields = ['first_name', 'last_name', 'number']
     template_name = "player_update.html"
+    success_url = "/"
+
+class PlayerDelete(DeleteView):
+    model = Player
+    template_name = "player_delete.html"
     success_url = "/"
