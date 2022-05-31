@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
 from .models import Player
 
 # Create your views here.
@@ -18,3 +19,9 @@ class PlayerList(TemplateView):
 class PlayerDetail(DetailView):
     model = Player
     template_name = "player_detail.html"
+
+class PlayerCreate(CreateView):
+    model = Player
+    fields = ['first_name', 'last_name', 'number']
+    template_name = "player_create.html"
+    success_url = "/"
