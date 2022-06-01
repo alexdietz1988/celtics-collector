@@ -14,6 +14,7 @@ class TeamList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["teams"] = Team.objects.all()
+        context["players"] = Player.objects.all()
         return context
 
 class PlayerDetail(DetailView):
@@ -28,7 +29,7 @@ class PlayerCreate(CreateView):
 
 class PlayerUpdate(UpdateView):
     model = Player
-    fields = ['first_name', 'last_name', 'number', 'team']
+    fields = ['first_name', 'last_name', 'number', 'team', 'former_teams']
     template_name = "player_update.html"
     success_url = "/"
 

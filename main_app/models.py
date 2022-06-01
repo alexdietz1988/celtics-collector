@@ -14,7 +14,8 @@ class Player(models.Model):
     last_name = models.CharField(max_length=100)
     img = models.CharField(max_length=250)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="players", default=1)
-    number = models.IntegerField(default=-1)
+    former_teams = models.ManyToManyField(Team, related_name="former_players", blank=True)
+    number = models.CharField(default='0', max_length=3)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

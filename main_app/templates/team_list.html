@@ -17,6 +17,11 @@ Player List
         <p><a href="{% url 'player_detail' player.pk %}">{{player.first_name}} {{player.last_name}}</a></p>
     {% endfor %}
     <br />
+    <em>Former players</em>
+    {% for player in team.former_players.all %}
+    <p><a href="{% url 'player_detail' player.pk %}">{{player.first_name}} {{player.last_name}}</a></p>
+    {% endfor %}
+    <br />
 {% endfor %}
 
 {% endblock %}
